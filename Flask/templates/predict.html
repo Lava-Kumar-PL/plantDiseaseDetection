@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predict | Plant_AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Reused Navbar -->
+    <nav id="navbar" 
+        class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 transition-all duration-300 ">
+        <a href="/">
+             <p class="sm:text-3xl text-green-600 font-semibold">Plant_AI</p>
+        </a>
+       
+        <ul class="flex gap-8 list-none mr-8 cursor-pointer sm:text-xl">
+            <li>
+                <a href="/#hero" class="text-black hover:text-green-800 transition">home</a>
+            </li>
+            <li>
+                <a href="/#how-it-works" class="text-black hover:text-green-800 transition">about</a>
+            </li>
+            <a href="#">
+                <li class="text-green-800 transition">predict</li>
+            </a>
+        </ul>
+    </nav>
+
+    
+
+
+
+    <!-- Spacer for fixed navbar -->
+    <div class="h-20"></div>
+
+    <!-- Upload Section -->
+    <section class="max-w-2xl mx-auto mt-16 p-8 bg-white shadow-lg rounded-xl text-center">
+        <h2 class="text-2xl font-bold text-green-700 mb-4">Upload Leaf Image</h2>
+        <p class="text-gray-600 mb-6">Choose or drag and drop a leaf image to detect plant disease using AI.</p>
+
+        <!-- Dropzone -->
+        <form id="upload-form" action="{{ url_for('predict') }}" method="POST"" enctype=multipart/form-data
+            class=" flex flex-col items-center border-2 border-dashed border-green-400 p-8 rounded-lg bg-green-50
+            hover:bg-green-100 transition">
+            <input type="file" id="file-input" accept="image/*" name="file" class="hidden" />
+            <label for="file-input" class="cursor-pointer flex flex-col items-center justify-center">
+                <svg class="w-12 h-12 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 16V4m0 0l-4 4m4-4l4 4m5 8v4m0 0l4-4m-4 4l-4-4" />
+                </svg>
+                <p class="text-green-700 font-medium">Drag & drop image here</p>
+                <p class="text-sm text-gray-500 mt-1">or click to choose from device</p>
+            </label>
+
+            <button id="submitbtn"
+                class="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition hidden">Predict</button>
+
+
+        </form>
+        <!-- Preview (optional) -->
+        <div id="preview-container" class="mt-6 hidden">
+            <img id="image-preview" class="max-w-xs mx-auto rounded-lg shadow" />
+
+        </div>
+
+        {% if image %}
+            <div id="backendImg" class="mt-6">
+                <h3 class="text-lg font-semibold text-green-800 mb-2">Uploaded Image</h3>
+                <img src="{{ image }}" alt="Uploaded Leaf" class="max-w-xs mx-auto rounded-lg shadow" />
+            </div>
+        {% endif %}
+
+    </section>
+
+
+    {% if result %}
+    <!-- Prediction Result Section -->
+    <div id="result-section" class="mt-8 p-6 border border-green-300 bg-green-50 rounded-lg text-left shadow-md">
+        <h3 class="text-xl font-semibold text-green-800 mb-2">Prediction Result</h3>
+        <p class="text-gray-800 leading-relaxed">{{ result|safe }}</p>
+    </div>
+    {% endif %}
+\
+
+
+    <script>
+        const fileInput = document.getElementById("file-input");
+        const previewContainer = document.getElementById("preview-container");
+        const previewImage = document.getElementById("image-preview");
+        const submitbtn = document.getElementById("submitbtn")
+        const resultsection = document.getElementById("result-section")
+        const backendImg = document.getElementById("backendImg")
+
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    previewImage.src = reader.result;
+                    previewContainer.classList.remove("hidden");
+                    submitbtn.classList.remove("hidden");
+                    resultsection.classList.add("hidden");
+                    backendImg.classList.add("hidden");
+
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Optional: Enable drag and drop
+        const form = document.getElementById("upload-form");
+        form.addEventListener("dragover", e => {
+            e.preventDefault();
+            form.classList.add("bg-green-200");
+        });
+
+        form.addEventListener("dragleave", () => {
+            form.classList.remove("bg-green-200");
+        });
+
+        form.addEventListener("drop", e => {
+            e.preventDefault();
+            form.classList.remove("bg-green-200");
+            const files = e.dataTransfer.files;
+            fileInput.files = files;
+            fileInput.dispatchEvent(new Event("change"));
+        });
+    </script>
+    <script src="../static/javascript/script.js"></script>
+
+</body>
+
+</html>

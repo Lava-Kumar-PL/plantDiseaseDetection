@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="../static/styles/style2.css" rel='stylesheet' type='text/css' media="all">
+    <title>Plant_AI</title>
+</head>
+<body class="h-full p-0 m-0 box-border ">
+
+    <!-- navbar -->
+   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 transition-all duration-300">
+    <a href="#">
+       <p class="sm:text-3xl text-green-600 font-semibold">Plant_AI</p>
+    </a>  
+   
+      <ul class="flex gap-8 list-none mr-8 cursor-pointer sm:text-xl">
+        <li>
+          <a href="#hero" class="text-black hover:text-green-800 transition">home</a>
+        </li>
+        <li>
+          <a href="#how-it-works" class="text-black hover:text-green-800 transition">about</a>
+        </li>
+        <a href="/predict">
+          <li class="text-black hover:text-green-800 transition">predict</li>
+        </a>
+      </ul>
+    </nav>
+
+      
+   
+    <!-- hero section -->
+    <section id="hero" class="bg-gradient-to-b  from-green-100 to-white min-h-screen p-2 flex items-center ">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col-reverse md:flex-row items-center gap-12">
+          
+          <!-- Left Content -->
+          <div class="text-center md:text-left flex-1">
+            <h1 class="text-4xl sm:text-5xl font-bold text-green-700 leading-tight">
+              Instant Plant Disease Detection<br />
+              <span class="text-green-500">Powered by AI</span>
+            </h1>
+            <p class="mt-6 text-lg text-gray-700 max-w-xl">
+              Upload a leaf image and get real-time diagnosis for 35+ plant diseases including Apple, Tomato, Corn, Grape, and more.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="/predict" class="px-6 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition">
+                Try it Now
+              </a>
+              <a href="#how-it-works" class="px-6 py-3 border border-green-600 text-green-700 rounded-xl hover:bg-green-100 transition">
+                Learn More
+              </a>
+            </div>
+          </div>
+      
+          <!-- Right Image -->
+          <div class="flex-1">
+            <img src="../static/images/agriculture (1).png" alt="AI Plant Detection" class="w-full max-w-md mx-auto">
+          </div>
+      
+        </div>
+      </section>
+
+    <!-- how it works section -->
+    <section class="bg-white py-16" id="how-it-works">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+            How Does It Work?
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+            Our system is powered by a deep learning model called a <strong>Convolutional Neural Network (CNN)</strong>. It’s trained on thousands of plant leaf images to accurately detect and classify over <strong>35 plant diseases</strong> across multiple crops. Just upload a photo, and the AI takes care of the rest — fast, accurate, and reliable.
+          </p>
+      
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            <div class="p-6 rounded-xl shadow border">
+              <h3 class="text-xl font-semibold text-green-700 mb-2">Trained on Real Plant Images</h3>
+              <p class="text-gray-600">We use a vast dataset of leaf images with diseases and healthy samples for high accuracy.</p>
+            </div>
+            <div class="p-6 rounded-xl shadow border">
+              <h3 class="text-xl font-semibold text-green-700 mb-2">CNN Model</h3>
+              <p class="text-gray-600">Our AI uses CNNs — a type of deep learning architecture built for image recognition tasks like this.</p>
+            </div>
+            <div class="p-6 rounded-xl shadow border">
+              <h3 class="text-xl font-semibold text-green-700 mb-2">Real-Time Prediction</h3>
+              <p class="text-gray-600">Upload an image and instantly receive predictions with the disease name.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- categories section -->
+      <section class="bg-white py-16" id="plant-diseases">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-3xl sm:text-4xl font-bold text-center text-green-800 mb-4">
+            Supported Crops & Diseases
+          </h2>
+          <p class="text-center text-gray-600 mb-10">
+            Our AI model identifies 35+ diseases across 14+ crops. Here’s the complete list:
+          </p>
+      
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Apple -->
+            <div class="bg-green-50 border border-green-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-green-700 mb-3">🍎 Apple</h3>
+              <ul class="list-disc list-inside text-gray-700 space-y-1">
+                <li>Apple Scab</li>
+                <li>Black Rot</li>
+                <li>Cedar Apple Rust</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Blueberry -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-blue-700 mb-3">🫐 Blueberry</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Cherry -->
+            <div class="bg-pink-50 border border-pink-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-pink-700 mb-3">🍒 Cherry</h3>
+              <ul class="list-disc list-inside text-gray-700 space-y-1">
+                <li>Powdery Mildew</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Corn -->
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-yellow-700 mb-3">🌽 Corn (Maize)</h3>
+              <ul class="list-disc list-inside text-gray-700 space-y-1">
+                <li>Cercospora Leaf Spot / Gray Leaf Spot</li>
+                <li>Common Rust</li>
+                <li>Northern Leaf Blight</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Grape -->
+            <div class="bg-purple-50 border border-purple-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-purple-700 mb-3">🍇 Grape</h3>
+              <ul class="list-disc list-inside text-gray-700 space-y-1">
+                <li>Black Rot</li>
+                <li>Esca (Black Measles)</li>
+                <li>Leaf Blight (Isariopsis Leaf Spot)</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Orange -->
+            <div class="bg-orange-50 border border-orange-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-orange-700 mb-3">🍊 Orange</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Huanglongbing (Citrus Greening)</li>
+              </ul>
+            </div>
+      
+            <!-- Peach -->
+            <div class="bg-pink-100 border border-pink-300 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-pink-800 mb-3">🍑 Peach</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Bacterial Spot</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Pepper -->
+            <div class="bg-red-50 border border-red-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-red-700 mb-3">🫑 Pepper (Bell)</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Bacterial Spot</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Potato -->
+            <div class="bg-yellow-100 border border-yellow-300 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-yellow-800 mb-3">🥔 Potato</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Early Blight</li>
+                <li>Late Blight</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Strawberry -->
+            <div class="bg-pink-200 border border-pink-300 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-pink-900 mb-3">🍓 Strawberry</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Leaf Scorch</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Soybean -->
+            <div class="bg-green-100 border border-green-300 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-green-900 mb-3">🫘 Soybean</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Healthy</li>
+              </ul>
+            </div>
+      
+            <!-- Squash -->
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5 shadow-sm">
+              <h3 class="text-xl font-semibold text-yellow-700 mb-3">🥒 Squash</h3>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>Powdery Mildew</li>
+              </ul>
+            </div>
+      
+            <!-- Tomato -->
+            <div class="bg-red-100 border border-red-300 rounded-xl p-5 shadow-md col-span-full">
+              <h3 class="text-2xl font-bold text-red-800 mb-4">🍅 Tomato</h3>
+              <ul class="list-disc list-inside text-gray-700 grid grid-cols-1 sm:grid-cols-2 gap-y-1 gap-x-10">
+                <li>Bacterial Spot</li>
+                <li>Early Blight</li>
+                <li>Late Blight</li>
+                <li>Leaf Mold</li>
+                <li>Septoria Leaf Spot</li>
+                <li>Spider Mites (Two-Spotted)</li>
+                <li>Target Spot</li>
+                <li>Tomato Yellow Leaf Curl Virus</li>
+                <li>Tomato Mosaic Virus</li>
+                <li>Healthy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <footer class="bg-gray-100 mt-16 text-gray-700">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+    
+    <!-- Logo & About -->
+    <div>
+      <h2 class="text-2xl font-semibold text-green-700">Plant_AI</h2>
+      <p class="mt-2 text-sm">A deep learning-powered tool to detect plant diseases with high accuracy. Helping farmers and gardeners maintain healthy crops.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Quick Links</h3>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#hero" class="hover:text-green-600">Home</a></li>
+        <li><a href="#how-it-works" class="hover:text-green-600">About</a></li>
+        <li><a href="/predict" class="hover:text-green-600">Predict</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Contact</h3>
+      <p class="text-sm">Email: <a href="mailto:plantai@support.com" class="text-green-700 hover:underline">plantai@support.com</a></p>
+      <p class="text-sm mt-1">GitHub: <a href="https://github.com/your-repo" target="_blank" class="text-green-700 hover:underline">/your-repo</a></p>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-300 mt-6 py-4 text-center text-sm">
+    © 2025 Plant_AI. All rights reserved.
+  </div>
+</footer>
+
+      
+      
+
+     <script src="../static/javascript/script.js"></script> 
+
+</body>
+</html>
